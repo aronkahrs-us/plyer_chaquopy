@@ -4,7 +4,10 @@ Android accelerometer
 '''
 
 from plyer.facades import Accelerometer
-from jnius import PythonJavaClass, java_method, autoclass, cast
+from java import dynamic_proxy as PythonJavaClass
+from java import jclass as autoclass
+from java import cast as cast
+from java import method as java_method
 from plyer.platforms.android import activity
 
 Context = autoclass('android.content.Context')
