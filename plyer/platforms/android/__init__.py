@@ -18,3 +18,5 @@ else:
     PythonActivity = autoclass(ns + '.PythonActivity')
     activity = PythonActivity.mActivity
     print(PythonActivity,activity)
+    print(activity)
+    print(dir(PythonActivity))
