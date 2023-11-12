@@ -16,7 +16,6 @@ if 'PYTHON_SERVICE_ARGUMENT' in environ:
     activity = PythonService.mService
 else:
     PythonActivity = autoclass(ns + '.PythonActivity')
-    activity = PythonActivity.mActivity
-    print(PythonActivity,activity)
-    print(activity)
+    activity = PythonActivity
+    print(PythonActivity)
     print(dir(PythonActivity))
