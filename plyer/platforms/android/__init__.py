@@ -18,11 +18,3 @@ if 'PYTHON_SERVICE_ARGUMENT' in environ:
 else:
     PythonActivity = autoclass(ns + '.PythonActivity')
     activity = PythonActivity
-    print(PythonActivity)
-    print(dir(PythonActivity))
-    Context = autoclass("android.content.Context")
-    vibrator_service = activity.getSystemService(String(Context.VIBRATOR_SERVICE))
-    vibrator = cast("android.os.Vibrator", vibrator_service)
-    print(Context)
-    print(vibrator_service)
-    print(vibrator)
