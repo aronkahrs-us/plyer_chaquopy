@@ -1,5 +1,6 @@
 from os import environ
 from java import jclass as autoclass
+from java.lang import String
 from com.ak.geosmartphone.geosmartphone import R;
 
 ANDROID_VERSION = autoclass('android.os.Build$VERSION')
@@ -20,7 +21,7 @@ else:
     print(PythonActivity)
     print(dir(PythonActivity))
     Context = autoclass("android.content.Context")
-    vibrator_service = activity.getSystemService(Context.VIBRATOR_SERVICE)
+    vibrator_service = activity.getSystemService(String(Context.VIBRATOR_SERVICE))
     vibrator = cast("android.os.Vibrator", vibrator_service)
     print(Context)
     print(vibrator_service)
