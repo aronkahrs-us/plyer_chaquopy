@@ -1,6 +1,7 @@
 """Implementation Vibrator for Android."""
 
-from jnius import autoclass, cast
+from java import jclass as autoclass
+from java import cast as cast
 from plyer.facades import Vibrator
 from plyer.platforms.android import activity
 from plyer.platforms.android import SDK_INT
