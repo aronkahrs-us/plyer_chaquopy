@@ -42,7 +42,7 @@ class AccelerometerSensorListener(PythonJavaClass):
     def onSensorChanged(self, event):
         self.values = event.values[:3]
 
-    @java_method('(Landroid/hardware/Sensor;I)V')
+    @java_method('(Landroid/hardware/Sensor;I)V',[])
     def onAccuracyChanged(self, sensor, accuracy):
         # Maybe, do something in future?
         pass
