@@ -20,7 +20,7 @@ class AccelerometerSensorListener(PythonJavaClass):
     def __init__(self):
         super().__init__()
         self.SensorManager = cast(
-            'android.hardware.SensorManager',
+            autoclass('android.hardware.SensorManager'),
             activity.getSystemService(Context.SENSOR_SERVICE)
         )
         self.sensor = self.SensorManager.getDefaultSensor(
