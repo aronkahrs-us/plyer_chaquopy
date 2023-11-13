@@ -14,7 +14,6 @@ Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
 SensorManager = autoclass('android.hardware.SensorManager')
 
-
 class AccelerometerSensorListener(PythonJavaClass):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
 
