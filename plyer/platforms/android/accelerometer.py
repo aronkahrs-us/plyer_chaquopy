@@ -7,7 +7,7 @@ from plyer.facades import Accelerometer
 from java import dynamic_proxy as PythonJavaClass
 from java import jclass as autoclass
 from java import cast as cast
-from chaquopy import chained_callback as java_method
+from java import method as java_method
 from plyer.platforms.android import activity
 
 Context = autoclass('android.content.Context')
@@ -38,7 +38,7 @@ class AccelerometerSensorListener(PythonJavaClass):
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
 
-    @java_method('(Landroid/hardware/SensorEvent;)V')
+    @java_method('(Landroid/hardware/SensorEvent;)V',[])
     def onSensorChanged(self, event):
         self.values = event.values[:3]
 
