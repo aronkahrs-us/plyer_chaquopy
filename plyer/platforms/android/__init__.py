@@ -15,5 +15,5 @@ if 'PYTHON_SERVICE_ARGUMENT' in environ:
     activity = PythonService.mService
 else:
     PythonActivity = autoclass(ns + '.MainActivity')
-    activity = PythonActivity
+    activity = PythonActivity.singletonThis
     print(dir(PythonActivity))
