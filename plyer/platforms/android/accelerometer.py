@@ -7,7 +7,7 @@ from plyer.facades import Accelerometer
 from java import dynamic_proxy as PythonJavaClass
 from java import jclass as autoclass
 from java import cast as cast
-from java import method as java_method
+from java import static_proxy as java_method
 from plyer.platforms.android import activity
 
 Context = autoclass('android.content.Context')
@@ -38,11 +38,11 @@ class AccelerometerSensorListener(PythonJavaClass):
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
 
-    @PythonJavaClass('(Landroid/hardware/Sensor;)V')
+    @java_method('(Landroid/hardware/Sensor;)V')
     def onSensorChanged(self, event):
         self.values = event.values[:3]
 
-    @PythonJavaClass('(Landroid/hardware/Sensor;)V')
+    @java_method('(Landroid/hardware/Sensor;)V')
     def onAccuracyChanged(self, sensor, accuracy):
         # Maybe, do something in future?
         pass
