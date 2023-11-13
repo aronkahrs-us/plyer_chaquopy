@@ -8,7 +8,7 @@ from plyer.platforms.android import SDK_INT
 
 Context = autoclass("android.content.Context")
 print('before service',activity,dir(activity))
-vibrator_service = activity.getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE)
+vibrator_service = activity.getSystemService(Context.VIBRATOR_SERVICE)
 vibrator = cast("android.os.Vibrator", vibrator_service)
 if SDK_INT >= 26:
     VibrationEffect = autoclass("android.os.VibrationEffect")
