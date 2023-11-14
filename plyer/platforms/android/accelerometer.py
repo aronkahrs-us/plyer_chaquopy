@@ -4,17 +4,17 @@ Android accelerometer
 '''
 
 from plyer.facades import Accelerometer
-from java import dynamic_proxy as PythonJavaClass
+from java import dynamic_proxy
 from java import jclass as autoclass
 from java import cast as cast
 from java import method as java_method
 from plyer.platforms.android import activity
-
+from android.hardware import SensorEventListener
 Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
 SensorManager = autoclass('android.hardware.SensorManager')
 
-class AccelerometerSensorListener(PythonJavaClass):
+class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
 
     def __init__(self):
@@ -34,8 +34,6 @@ class AccelerometerSensorListener(PythonJavaClass):
             self, self.sensor,
             SensorManager.SENSOR_DELAY_NORMAL
         )
-        print(dir(self.SensorManager))
-        print(dir(self.SensorManager.registerListener))
 
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
