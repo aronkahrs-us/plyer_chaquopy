@@ -12,7 +12,6 @@ from plyer.platforms.android import activity
 
 Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
-SensorEvent = autoclass('android.hardware.SensorEvent')
 SensorManager = autoclass('android.hardware.SensorManager')
 
 class AccelerometerSensorListener(PythonJavaClass):
@@ -39,7 +38,7 @@ class AccelerometerSensorListener(PythonJavaClass):
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
 
-    @java_method('void',[SensorEvent])
+    @java_method('void',['Landroid/hardware/SensorEvent'])
     def onSensorChanged(self, event):
         self.values = event.values[:3]
 
