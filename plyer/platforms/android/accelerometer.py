@@ -14,13 +14,13 @@ Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
 SensorManager = autoclass('android.hardware.SensorManager')
 
-class AccelerometerSensorListener(PythonJavaClass, autoclass('android/hardware/SensorEventListener')):
+class AccelerometerSensorListener(PythonJavaClass, autoclass('android.hardware.SensorEventListener')):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
 
     def __init__(self):
         super().__init__()
         self.SensorManager = cast(
-            SensorManager,
+            autoclass('android.hardware.SensorManager'),
             activity.getSystemService(Context.SENSOR_SERVICE)
         )
         self.sensor = self.SensorManager.getDefaultSensor(
