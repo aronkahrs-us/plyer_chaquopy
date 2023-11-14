@@ -32,10 +32,10 @@ class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
     def enable(self):
         self.SensorManager.registerListener(
             self, self.sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_FASTEST
         )
         print('SENSOR_DELAY_NORMAL')
-        print(SensorManager.SENSOR_DELAY_NORMAL)
+        print(SensorManager.SENSOR_DELAY_FASTEST)
 
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
