@@ -18,7 +18,7 @@ class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
 
     def __init__(self):
-        super().__init__()
+        super(AccelerometerSensorListener, self).__init__()
         self.SensorManager = cast(
             autoclass('android.hardware.SensorManager'),
             activity.getSystemService(Context.SENSOR_SERVICE)
