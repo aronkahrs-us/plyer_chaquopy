@@ -32,10 +32,8 @@ class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
     def enable(self):
         self.SensorManager.registerListener(
             self, self.sensor,
-            SensorManager.SENSOR_DELAY_GAME
+            SensorManager.SENSOR_DELAY_NORMAL
         )
-        print('SENSOR_DELAY')
-        print(SensorManager.SENSOR_DELAY_GAME)
 
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
