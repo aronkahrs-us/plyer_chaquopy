@@ -42,7 +42,6 @@ class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
         
     def onSensorChanged(self, event):
         self.values = event.values[:3]
-        print(self.values)
 
     def onAccuracyChanged(self, sensor, accuracy):
         # Maybe, do something in future?
