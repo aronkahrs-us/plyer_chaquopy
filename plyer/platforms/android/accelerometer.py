@@ -14,7 +14,7 @@ Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
 SensorManager = autoclass('android.hardware.SensorManager')
 
-class AccelerometerSensorListener(PythonJavaClass, autoclass('android.hardware.SensorEventListener')):
+class AccelerometerSensorListener(PythonJavaClass):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
 
     def __init__(self):
@@ -34,6 +34,8 @@ class AccelerometerSensorListener(PythonJavaClass, autoclass('android.hardware.S
             self, self.sensor,
             SensorManager.SENSOR_DELAY_NORMAL
         )
+        print(dir(self.SensorManager))
+        print(dir(self.SensorManager.registerListener))
 
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
