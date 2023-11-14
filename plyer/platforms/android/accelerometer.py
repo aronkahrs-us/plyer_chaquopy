@@ -37,10 +37,12 @@ class AccelerometerSensorListener(PythonJavaClass):
 
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
-
+        
+    @java_method('void',['android/hardware/SensorEvent'])
     def onSensorChanged(self, event):
         self.values = event.values[:3]
 
+    @java_method('void',['android/hardware/Sensor'])
     def onAccuracyChanged(self, sensor, accuracy):
         # Maybe, do something in future?
         pass
