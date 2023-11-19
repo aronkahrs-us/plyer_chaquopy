@@ -24,7 +24,7 @@ class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
             activity.getSystemService(Context.SENSOR_SERVICE)
         )
         self.sensor = self.SensorManager.getDefaultSensor(
-            Sensor.TYPE_ACCELEROMETER
+            Sensor.TYPE_LINEAR_ACCELERATION
         )
 
         self.values = [None, None, None]
