@@ -4,21 +4,25 @@ Android Gyroscope
 '''
 
 from plyer.facades import Gyroscope
-from jnius import PythonJavaClass, java_method, autoclass, cast
+from java import dynamic_proxy
+from java import jclass as autoclass
+from java import cast as cast
+from java import method as java_method
 from plyer.platforms.android import activity
+from android.hardware import SensorEventListener
 
 Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
 SensorManager = autoclass('android.hardware.SensorManager')
 
 
-class GyroscopeSensorListener(PythonJavaClass):
+class GyroscopeSensorListener(dynamic_proxy(SensorEventListener)):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
 
     def __init__(self):
-        super().__init__()
+        super(GyroscopeSensorListener, self).__init__()
         self.SensorManager = cast(
-            'android.hardware.SensorManager',
+            autoclass('android.hardware.SensorManager'),
             activity.getSystemService(Context.SENSOR_SERVICE)
         )
         self.sensor = self.SensorManager.getDefaultSensor(
@@ -36,23 +40,21 @@ class GyroscopeSensorListener(PythonJavaClass):
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
 
-    @java_method('(Landroid/hardware/SensorEvent;)V')
     def onSensorChanged(self, event):
         self.values = event.values[:3]
 
-    @java_method('(Landroid/hardware/Sensor;I)V')
     def onAccuracyChanged(self, sensor, accuracy):
         # Maybe, do something in future?
         pass
 
 
-class GyroUncalibratedSensorListener(PythonJavaClass):
+class GyroUncalibratedSensorListener(dynamic_proxy(SensorEventListener)):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
 
     def __init__(self):
-        super().__init__()
+        super(GyroUncalibratedSensorListener, self).__init__()
         service = activity.getSystemService(Context.SENSOR_SERVICE)
-        self.SensorManager = cast('android.hardware.SensorManager', service)
+        self.SensorManager = cast(autoclass('android.hardware.SensorManager'), service)
 
         self.sensor = self.SensorManager.getDefaultSensor(
             Sensor.TYPE_GYROSCOPE_UNCALIBRATED)
@@ -67,11 +69,9 @@ class GyroUncalibratedSensorListener(PythonJavaClass):
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
 
-    @java_method('(Landroid/hardware/SensorEvent;)V')
     def onSensorChanged(self, event):
         self.values = event.values[:6]
 
-    @java_method('(Landroid/hardware/Sensor;I)V')
     def onAccuracyChanged(self, sensor, accuracy):
         pass
 
