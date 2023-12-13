@@ -42,6 +42,7 @@ class GyroscopeSensorListener(dynamic_proxy(SensorEventListener)):
 
     def onSensorChanged(self, event):
         self.values = event.values[:3]
+        print('GYRO: ',self.values)
 
     def onAccuracyChanged(self, sensor, accuracy):
         # Maybe, do something in future?
@@ -71,7 +72,6 @@ class GyroUncalibratedSensorListener(dynamic_proxy(SensorEventListener)):
 
     def onSensorChanged(self, event):
         self.values = event.values[:6]
-        print('val gyro',self.values[:6])
 
     def onAccuracyChanged(self, sensor, accuracy):
         pass
