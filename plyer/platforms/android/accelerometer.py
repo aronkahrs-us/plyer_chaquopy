@@ -50,10 +50,8 @@ class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
     def onSensorChanged(self, event):
         if event.sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION:
             self.values = event.values[:3]
-            print('ACC: ',self.values[:3])
         elif event.sensor.getType() == Sensor.TYPE_GYROSCOPE:
             self.values = event.values[:3]
-            print('GYRO: ',self.values[:3])
 
     def onAccuracyChanged(self, sensor, accuracy):
         # Maybe, do something in future?
