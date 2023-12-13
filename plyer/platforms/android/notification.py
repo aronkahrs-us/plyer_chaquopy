@@ -17,7 +17,8 @@ Module of Android API for plyer.notification.
 
 from android import python_act
 from android.runnable import run_on_ui_thread
-from jnius import autoclass, cast
+from java import jclass as autoclass
+from java import cast as cast
 
 from plyer.facades import Notification
 from plyer.platforms.android import activity, SDK_INT
