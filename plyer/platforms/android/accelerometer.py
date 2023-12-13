@@ -40,8 +40,9 @@ class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
         self.SensorManager.unregisterListener(self, self.sensor)
         
     def onSensorChanged(self, event):
-        self.values = event.values[:3]
-        print('ACC: ',self.values[:3])
+        if event.sensor.getType == Sensor.TYPE_LINEAR_ACCELERATION:
+            self.values = event.values[:3]
+            print('ACC: ',self.values[:3])
 
     def onAccuracyChanged(self, sensor, accuracy):
         # Maybe, do something in future?
