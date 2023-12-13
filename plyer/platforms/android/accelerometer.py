@@ -10,6 +10,7 @@ from java import cast as cast
 from java import method as java_method
 from plyer.platforms.android import activity
 from android.hardware import SensorEventListener
+
 Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
 SensorManager = autoclass('android.hardware.SensorManager')
@@ -32,7 +33,7 @@ class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
     def enable(self):
         self.SensorManager.registerListener(
             self, self.sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_FASTEST
         )
 
     def disable(self):
