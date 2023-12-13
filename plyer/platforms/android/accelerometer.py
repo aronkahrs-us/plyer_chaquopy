@@ -45,6 +45,7 @@ class AccelerometerSensorListener(dynamic_proxy(SensorEventListener)):
 
     def disable(self):
         self.SensorManager.unregisterListener(self, self.sensor)
+        self.SensorManager.unregisterListener(self, self.sensor2)
         
     def onSensorChanged(self, event):
         if event.sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION:
