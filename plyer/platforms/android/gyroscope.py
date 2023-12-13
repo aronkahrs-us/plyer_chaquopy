@@ -34,7 +34,7 @@ class GyroscopeSensorListener(dynamic_proxy(SensorEventListener)):
     def enable(self):
         self.SensorManager.registerListener(
             self, self.sensor,
-            SensorManager.SENSOR_DELAY_NORMAL
+            SensorManager.SENSOR_DELAY_FASTEST
         )
 
     def disable(self):
@@ -42,6 +42,7 @@ class GyroscopeSensorListener(dynamic_proxy(SensorEventListener)):
 
     def onSensorChanged(self, event):
         self.values = event.values[:3]
+        print('val gyro',self.values[:3])
 
     def onAccuracyChanged(self, sensor, accuracy):
         # Maybe, do something in future?
@@ -71,6 +72,7 @@ class GyroUncalibratedSensorListener(dynamic_proxy(SensorEventListener)):
 
     def onSensorChanged(self, event):
         self.values = event.values[:6]
+        print('val gyro',self.values[:6])
 
     def onAccuracyChanged(self, sensor, accuracy):
         pass
