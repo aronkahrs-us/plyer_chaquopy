@@ -3,7 +3,7 @@ Android MULTI
 ---------------------
 '''
 
-from plyer.facades import MULTI
+from plyer.facades import multi
 from java import dynamic_proxy
 from java import jclass as autoclass
 from java import cast as cast
