@@ -49,7 +49,7 @@ class MultiSensorListener(dynamic_proxy(SensorEventListener)):
         self.SensorManager.unregisterListener(self, self.sensor_gyro)
         
     def onSensorChanged(self, event):
-        if event.sensor.getType() == Sensor.TYPE_ACCELEROMETER:
+        if event.sensor.getType() == Sensor.TYPE_LINEAR_ACCELERATION:
             self.acc = event.values[:3]
         elif event.sensor.getType() == Sensor.TYPE_GYROSCOPE:
             self.gyro = event.values[:3]
