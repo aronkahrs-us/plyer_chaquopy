@@ -10,7 +10,7 @@ __all__ = (
     'flash', 'gps', 'gravity', 'gyroscope', 'humidity', 'irblaster',
     'keystore', 'light', 'maps', 'notification', 'orientation', 'processors',
     'proximity', 'screenshot', 'sms', 'spatialorientation', 'storagepath',
-    'stt', 'temperature', 'tts', 'uniqueid', 'vibrator', 'wifi', 'devicename', 'MULTI'
+    'stt', 'temperature', 'tts', 'uniqueid', 'vibrator', 'wifi', 'devicename', 'multi'
 )
 
 __version__ = '2.2.0.dev0'
@@ -126,5 +126,5 @@ devicename = Proxy('devicename', facades.DeviceName)
 #: Maps proxy to :class:`plyer.facades.Maps`
 maps = Proxy('maps', facades.Maps)
 
-#: MULTI proxy to :class:`plyer.facades.MULTI`
-MULTI = Proxy('MULTI', facades.MULTI)
+#: multi proxy to :class:`plyer.facades.multi`
+multi = Proxy('multi', facades.multi)
