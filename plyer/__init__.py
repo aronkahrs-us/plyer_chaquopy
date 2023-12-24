@@ -10,7 +10,7 @@ __all__ = (
     'flash', 'gps', 'gravity', 'gyroscope', 'humidity', 'irblaster',
     'keystore', 'light', 'maps', 'notification', 'orientation', 'processors',
     'proximity', 'screenshot', 'sms', 'spatialorientation', 'storagepath',
-    'stt', 'temperature', 'tts', 'uniqueid', 'vibrator', 'wifi', 'devicename', 'Multi'
+    'stt', 'temperature', 'tts', 'uniqueid', 'vibrator', 'wifi', 'devicename', 'multi'
 )
 
 __version__ = '2.2.0.dev0'
