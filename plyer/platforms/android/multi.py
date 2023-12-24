@@ -78,7 +78,13 @@ class AndroidMULTI(MULTI):
 
     def _get_acceleration(self):
         if (self.bState):
-            return tuple(self.listener.values)
+            return tuple(self.listener.acc)
+        else:
+            return (None, None, None)
+            
+    def _get_orientation(self):
+        if (self.bState):
+            return tuple(self.listener.gyro)
         else:
             return (None, None, None)
 
