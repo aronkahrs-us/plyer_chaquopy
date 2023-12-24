@@ -3,7 +3,7 @@ Android MULTI
 ---------------------
 '''
 
-from plyer.facades import multi
+from plyer.facades import Multi
 from java import dynamic_proxy
 from java import jclass as autoclass
 from java import cast as cast
@@ -15,11 +15,11 @@ Context = autoclass('android.content.Context')
 Sensor = autoclass('android.hardware.Sensor')
 SensorManager = autoclass('android.hardware.SensorManager')
 
-class MULTISensorListener(dynamic_proxy(SensorEventListener)):
+class MultiSensorListener(dynamic_proxy(SensorEventListener)):
     __javainterfaces__ = ['android/hardware/SensorEventListener']
 
     def __init__(self):
-        super(AccelerometerSensorListener, self).__init__()
+        super(MultiSensorListener, self).__init__()
         self.SensorManager = cast(
             autoclass('android.hardware.SensorManager'),
             activity.getSystemService(Context.SENSOR_SERVICE)
@@ -59,14 +59,14 @@ class MULTISensorListener(dynamic_proxy(SensorEventListener)):
         pass
 
 
-class AndroidMULTI(MULTI):
+class AndroidMulti(Multi):
     def __init__(self):
         super().__init__()
         self.bState = False
 
     def _enable(self):
         if (not self.bState):
-            self.listener = MULTISensorListener()
+            self.listener = MultiSensorListener()
             self.listener.enable()
             self.bState = True
 
@@ -95,4 +95,4 @@ class AndroidMULTI(MULTI):
 
 
 def instance():
-    return AndroidMULTI()
+    return AndroidMulti()
