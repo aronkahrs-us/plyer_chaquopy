@@ -5,7 +5,7 @@ Multiple Sensors
 '''
 
 
-class MULTI:
+class multi:
     '''
     Multi facade.
     '''
