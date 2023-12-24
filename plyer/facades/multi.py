@@ -34,25 +34,6 @@ class MULTI:
         return self.get_orientation()
 
     @property
-    def rotation_uncalib(self):
-        '''
-        Property that returns the current rate of rotation around the X, Y and
-        Z axis. An estimation of the drift on each axis is reported as well.
-
-        Along x-axis: angular speed (w/o drift compensation) around the X axis
-        Along y-axis: angular speed (w/o drift compensation) around the Y axis
-        Along z-axis: angular speed (w/o drift compensation) around the Z axis
-
-        Along x-axis: estimated drift around X axis
-        Along y-axis: estimated drift around Y axis
-        Along z-axis: estimated drift around Z axis
-
-        Returns (None, None, None, None, None, None) if no data is currently
-        available.
-        '''
-        return self.get_rotation_uncalib()
-
-    @property
     def orientation(self):
         '''
         WARNING:: This property is deprecated after API Level 8.
@@ -83,9 +64,6 @@ class MULTI:
     def get_orientation(self):
         return self._get_orientation()
 
-    def get_rotation_uncalib(self):
-        return self._get_rotation_uncalib()
-
 
     # private
 
@@ -99,7 +77,4 @@ class MULTI:
         raise NotImplementedError()
 
     def _get_orientation(self):
-        raise NotImplementedError()
-
-    def _get_rotation_uncalib(self):
         raise NotImplementedError()
